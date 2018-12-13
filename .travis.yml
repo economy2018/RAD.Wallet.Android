@@ -25,6 +25,6 @@ licenses:
 - 'google-gdk-license-.+'
 
 script:
-  - ./gradlew assembleRelease
+  - ./gradlew build connectedCheck
 
   
