@@ -10,9 +10,9 @@ android:
 
 before_install:
   - chmod +x gradlew
+  - yes | sdkmanager –licenses
 
 script:
-  yes | sdkmanager –licenses
   - ./gradlew assembleRelease
 
   
