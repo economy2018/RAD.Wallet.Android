@@ -1,5 +1,7 @@
 language: android
-sudo: required
+
+sudo: false
+
 android:
   components:
   # - tools
@@ -10,16 +12,18 @@ android:
   # Additional components
   # - add-on
   # - extra
-    - extra-google-m2repository
     - extra-android-m2repository
     - extra-android-support
-  before_install:
-    - chmod +x gradlew
+#  before_install:
+#    - chmod +x gradlew
 
   licenses:
     - 'android-sdk-preview-license-.+'
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
+
+  script:
+    - "./gradlew assembleRelease"
 
   # Specify at least one system image,
   # if you need to run emulator(s) during your tests
