@@ -55,10 +55,14 @@ before_install:
 #Source: https://medium.com/@oldergod/constraint-layout-and-circleci-travis-d50342696d2
 
 before_script:
-#- echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
-#- emulator -avd test -no-skin -no-audio -no-window &
-#- android-wait-for-emulator
-#- adb shell input keyevent 82 &
+before_script:
+  - wget https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip
+  - unzip -qq android-ndk-r16b-linux-x86_64.zip
+  - export ANDROID_NDK_HOME=`pwd`/android-ndk-r16b
+  - export LOCAL_ANDROID_NDK_HOME="$ANDROID_NDK_HOME"
+  - export LOCAL_ANDROID_NDK_HOST_PLATFORM="linux-x86_64"
+  - export PATH=$PATH:${ANDROID_NDK_HOME}
+  - env
 
 script:
 #- "./gradlew clean build connectedCheck -PdisablePreDex --stacktrace"
